@@ -9,15 +9,19 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 8226a33c542bcb54cd6bd0a366067b610b41713b64c9abec1bc4533d69f51e70
+  patches:
+    - use_system_zstd.patch
 
 build:
   number: 0
   skip: True  # [py<38]
-  script: {{PYTHON}} -m pip install  --global-option="--system-zstd" --no-deps --no-build-isolation . -vv
+  script: {{PYTHON}} -m pip install --no-deps --no-build-isolation . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - patch     # [unix]
+    - m2-patch  # [win]
   host:
     - python
     - cffi 1.16
