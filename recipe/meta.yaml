@@ -24,16 +24,16 @@ requirements:
     - m2-patch  # [win]
   host:
     - python
-    - cffi 1.16  # [py<313]
-    - cffi 1.17  # [py>312]
+    - cffi 1.16  # [py<=312]
+    - cffi 1.17  # [py>=313]
     - pip
     - setuptools <69.0.0 
     - wheel
     - zstd {{ zstd_version }}
   run:
     - python
-    - cffi >=1.11  # [py<313]
-    - cffi >=1.17  # [py>312]
+    - cffi >=1.11  # [py<=312]
+    - cffi >=1.17  # [py>=313]
     # The system zstd library and headers must match what python-zstandard is coded against exactly.
     # https://github.com/indygreg/python-zstandard/blob/0.22.0/zstd/zstd.h#L110
     # https://github.com/indygreg/python-zstandard/blob/0.22.0/setup_zstd.py#L38-L40
