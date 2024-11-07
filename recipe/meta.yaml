@@ -27,7 +27,7 @@ requirements:
     - cffi 1.16  # [py<=312]
     - cffi 1.17  # [py>=313]
     - pip
-    - setuptools <69.0.0
+    - setuptools
     - wheel
     - zstd {{ zstd_version }}
   run:
