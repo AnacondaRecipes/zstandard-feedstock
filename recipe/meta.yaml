@@ -13,7 +13,7 @@ source:
     - use_system_zstd.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
 
@@ -27,7 +27,7 @@ requirements:
     - cffi 1.16  # [py<=312]
     - cffi 1.17  # [py>=313]
     - pip
-    - setuptools <69.0.0 
+    - setuptools <69.0.0
     - wheel
     - zstd {{ zstd_version }}
   run:
