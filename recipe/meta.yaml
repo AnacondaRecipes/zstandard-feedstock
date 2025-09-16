@@ -1,38 +1,38 @@
 {% set name = "zstandard" %}
-{% set version = "0.23.0" %}
-{% set zstd_version = "1.5.6" %}
+{% set version = "0.24.0" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: fe3198b81c00032326342d973e526803f183f97aa9e9a98e3f897ebafe21178f
   patches:
     - use_system_zstd.patch
 
 build:
-  number: 1
-  skip: True  # [py<38]
-  script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
+  skip: true  # [py<39]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - patch     # [unix]
     - m2-patch  # [win]
   host:
     - python
-    - cffi 1.17
+    - cffi >=1.17
     - pip
+    - packaging
     - setuptools
     - wheel
-    - zstd {{ zstd_version }}
+    - zstd 1.5.7
   run:
     - python
-    - cffi >=1.11  # [py<=312]
-    - cffi >=1.17  # [py>=313]
+    - cffi >=1.17
     # The system zstd library and headers must match what python-zstandard is coded against exactly.
     # https://github.com/indygreg/python-zstandard/blob/0.22.0/zstd/zstd.h#L110
     # https://github.com/indygreg/python-zstandard/blob/0.22.0/setup_zstd.py#L38-L40
