@@ -58,7 +58,7 @@ about:
     This project provides Python bindings for interfacing with the
     Zstandard compression library. A C extension and CFFI interface are
     provided.
-  doc_url: https://github.com/indygreg/python-zstandard/blob/main/README.rst#python-zstandard
+  doc_url: https://python-zstandard.readthedocs.io
   dev_url: https://github.com/indygreg/python-zstandard
 
 extra:
