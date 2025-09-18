@@ -20,8 +20,6 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - patch     # [unix]
-    - m2-patch  # [win]
   host:
     - python
     - cffi >=1.17
