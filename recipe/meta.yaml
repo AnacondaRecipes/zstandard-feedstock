@@ -54,9 +54,8 @@ about:
     - zstd/LICENSE
   summary: Zstandard bindings for Python
   description: |
-    This project provides Python bindings for interfacing with the
-    Zstandard compression library. A C extension and CFFI interface are
-    provided.
+    This project provides Python bindings for interfacing with the Zstandard compression library.
+    A C extension and CFFI interface are provided.
   doc_url: https://python-zstandard.readthedocs.io
   dev_url: https://github.com/indygreg/python-zstandard
 
