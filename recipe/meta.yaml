@@ -49,7 +49,7 @@ test:
     # E  AssertionError: Items in the second set but not the first: multi_compress_to_buffer, multi_decompress_to_buffer
     # Test incorrectly checks for private symbol APIs availability unconditionally. Those APIs aren't available when
     # using external zstd. See footnote: https://python-zstandard.readthedocs.io/en/latest/installing.html
-    - pytest -vv tests/test_module_attributes.py::TestModuleAttributes::test_features tests
+    - pytest -vv --deselect=tests/test_module_attributes.py::TestModuleAttributes::test_features tests
   imports:
     - zstandard
 
