@@ -22,16 +22,16 @@ requirements:
     - {{ stdlib('c') }}
   host:
     - python
+    - cffi >=2.0.0b   # [py>=314]
     - cffi >=1.17,<2  # [py<314]
-    - cffi >=2.0.0b   # [py<314]
     - pip
     - packaging
     - setuptools >=77.0.0
     - zstd 1.5.7
   run:
     - python
+    - cffi >=2.0.0b   # [py>=314]
     - cffi >=1.17,<2  # [py<314]
-    - cffi >=2.0.0b   # [py<314]
     # The system zstd library and headers must match what python-zstandard is coded against exactly.
     # https://github.com/indygreg/python-zstandard/blob/0.22.0/zstd/zstd.h#L110
     # https://github.com/indygreg/python-zstandard/blob/0.22.0/setup_zstd.py#L38-L40
